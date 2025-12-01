@@ -24,7 +24,6 @@ void additionMatrix(int r, int c, int a[r][c], int b[r][c]){
         for (int j = 0; j<c; j++){
             result[i][j] = a[i][j] + b[i][j];
         }
-        printf("\n");
     }
     printf("Result Matrix (Addition):\n");
     printMatrix(r, c, result);
@@ -36,7 +35,6 @@ void subtractionMatrix(int r, int c, int a[r][c], int b[r][c]){
         for (int j = 0; j<c; j++){
             result[i][j] = a[i][j] - b[i][j];
         }
-        printf("\n");
     }
     printf("Result Matrix (Addition):\n");
     printMatrix(r, c, result);
