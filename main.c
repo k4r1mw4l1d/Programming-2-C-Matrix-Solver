@@ -25,7 +25,7 @@ void additionMatrix(int r, int c, int a[r][c], int b[r][c]){
             result[i][j] = a[i][j] + b[i][j];
         }
     }
-    printf("Result Matrix (Addition):\n");
+        printf("Result Matrix (Addition):\n");
     printMatrix(r, c, result);
 }
 
@@ -38,6 +38,24 @@ void subtractionMatrix(int r, int c, int a[r][c], int b[r][c]){
     }
     printf("Result Matrix (Addition):\n");
     printMatrix(r, c, result);
+}
+
+void multiplyMatrix(int r1, int c1, int A[r1][c1], int r2, int c2, int B[r2][c2]){
+    if (c1!=r2){
+        printf("\nMatrix Multiplication Not Possible\n");
+        return;
+    }
+    int result[r1][c2];
+    for (int i = 0; i<r1; i++){
+        for (int j = 0; j<c2; j++){
+            result[i][j] = 0;
+            for (int k = 0; k <c1; k++){
+                result[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    printf("\nMultiplication Result:\n");
+    printMatrix(r1, c2, result);
 }
 
 int main(){
@@ -67,6 +85,21 @@ int main(){
         } else {
             subtractionMatrix(r, c, a, b);
         }
+    } else if (choice == 3){
+        int r1, c1, r2, c2;
+        printf("Enter Rows & Columns For Matrix A: ");
+        scanf("%d %d", &r1, &c1);
+        int A[r1][c1];
+        printf("Enter Matrix A:\n");
+        inputMatrix(r1, c1, A);
+
+        printf("Enter Rows & Columns For Matrix B: ");
+        scanf("%d %d", &r2, &c2);
+        int B[r2][c2];
+        printf("Enter Matrix B:\n");
+        inputMatrix(r2, c2, B);
+        multiplyMatrix(r1,c1,A,r2,c2,B);
+
     }
     return 0;
 }
