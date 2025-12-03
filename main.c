@@ -58,6 +58,16 @@ void multiplyMatrix(int r1, int c1, int A[r1][c1], int r2, int c2, int B[r2][c2]
     printMatrix(r1, c2, result);
 }
 
+void transposeMatrix(int r, int c, int A[r][c]){
+    int result[c][r];
+    for (int i = 0; i<r; i++){
+        for (int j = 0; j<c; j++){
+            result[j][i] = A[i][j];
+        }
+    }
+    printMatrix(c, r, result);
+}
+
 int main(){
     int choice;
     printf("---------------Matrix Solver---------------\n");
@@ -100,6 +110,15 @@ int main(){
         inputMatrix(r2, c2, B);
         multiplyMatrix(r1,c1,A,r2,c2,B);
 
+    } else if (choice == 4){
+        int r, c;
+        printf("Enter Rows & Columns For Matrix: ");
+        scanf("%d %d", &r, &c);
+        int A[r][c];
+        printf("Enter Matrix:\n");
+        inputMatrix(r, c, A);
+        printf("The Transpose Matrix is:\n");
+        transposeMatrix(r, c, A);
     }
     return 0;
 }
